@@ -1,0 +1,40 @@
+# ================================================
+# Security for Utility Tools Folder
+# ================================================
+# 
+# UNCOMMENT one of the options below for production:
+#
+
+# ------------------------------------------------
+# OPTION 1: Allow only from localhost (RECOMMENDED)
+# ------------------------------------------------
+# Order Deny,Allow
+# Deny from all
+# Allow from 127.0.0.1
+# Allow from ::1
+
+
+# ------------------------------------------------
+# OPTION 2: Password Protection
+# ------------------------------------------------
+# AuthType Basic
+# AuthName "Restricted Access - Utility Tools"
+# AuthUserFile D:/laragon/www/mybba/public/utils/.htpasswd
+# Require valid-user
+#
+# Generate .htpasswd file with:
+# htpasswd -c .htpasswd admin
+
+
+# ------------------------------------------------
+# OPTION 3: Disable Directory Listing (Minimal Security)
+# ------------------------------------------------
+Options -Indexes
+
+
+# ------------------------------------------------
+# PRODUCTION RECOMMENDATION:
+# ------------------------------------------------
+# Delete this entire folder after setup is complete!
+# Or rename to random name like: utils_a7f3k9x2/
+# ------------------------------------------------

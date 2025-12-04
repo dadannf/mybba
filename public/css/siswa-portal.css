@@ -1,0 +1,287 @@
+/* ==================================================
+   SISWA PORTAL STYLES
+   File ini berisi styling khusus untuk portal siswa
+   Namespace: .siswa-portal
+   ================================================== */
+
+/* ==========================================
+   SISWA PORTAL WRAPPER
+   Container utama untuk portal siswa
+   ========================================== */
+.siswa-portal {
+    /* Base styling untuk portal siswa */
+}
+
+/* ==========================================
+   SISWA KEUANGAN STYLES
+   Styling khusus halaman keuangan siswa
+   ========================================== */
+.siswa-keuangan-summary {
+    /* Card summary info */
+}
+
+.siswa-keuangan-summary .summary-card {
+    border-radius: 0.5rem;
+    padding: 1.25rem;
+}
+
+.siswa-keuangan-summary .summary-card small {
+    display: block;
+    opacity: 0.75;
+}
+
+.siswa-keuangan-summary .summary-card h5 {
+    margin: 0.5rem 0;
+    font-weight: 600;
+}
+
+/* ==========================================
+   SISWA PAYMENT TABLE
+   Tabel pembayaran bulanan siswa
+   ========================================== */
+.siswa-payment-table {
+    /* Styling tabel pembayaran */
+}
+
+.siswa-payment-table table {
+    width: 100%;
+}
+
+.siswa-payment-table .payment-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.siswa-payment-table .payment-btn-lock {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.siswa-payment-table .payment-btn-lock small {
+    font-size: 0.75rem;
+}
+
+/* ==========================================
+   SISWA DASHBOARD CARDS
+   Card untuk dashboard siswa
+   ========================================== */
+.siswa-dashboard-card {
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.siswa-dashboard-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.siswa-dashboard-card .card-icon {
+    font-size: 2.5rem;
+    opacity: 0.3;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* ==========================================
+   SISWA INFO ALERT
+   Alert box untuk informasi penting siswa
+   ========================================== */
+.siswa-info-alert {
+    border-left: 4px solid;
+    border-radius: 0.375rem;
+}
+
+.siswa-info-alert ul {
+    margin-bottom: 0;
+    margin-top: 0.5rem;
+    padding-left: 1.5rem;
+}
+
+.siswa-info-alert ul li {
+    margin: 0.25rem 0;
+}
+
+/* ==========================================
+   SISWA DATA PRIBADI
+   Styling untuk halaman data pribadi
+   ========================================== */
+.siswa-profile-section {
+    /* Section untuk profil siswa */
+}
+
+.siswa-profile-section .profile-avatar-large {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-size: 3rem;
+    margin: 0 auto 1rem;
+}
+
+.siswa-profile-section .profile-info-row {
+    display: flex;
+    padding: 0.75rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.siswa-profile-section .profile-info-row:last-child {
+    border-bottom: none;
+}
+
+.siswa-profile-section .profile-info-label {
+    font-weight: 600;
+    width: 150px;
+    color: #495057;
+}
+
+.siswa-profile-section .profile-info-value {
+    flex: 1;
+    color: #212529;
+}
+
+/* ==========================================
+   SISWA PAYMENT MODAL
+   Modal untuk form pembayaran siswa
+   ========================================== */
+.siswa-payment-modal .modal-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.siswa-payment-modal .info-box {
+    background-color: #e7f3ff;
+    border: 1px solid #b3d9ff;
+    padding: 1rem;
+    border-radius: 0.375rem;
+    margin-bottom: 1rem;
+}
+
+.siswa-payment-modal .info-box strong {
+    color: #004085;
+}
+
+.siswa-payment-modal .warning-box {
+    background-color: #fff3cd;
+    border: 1px solid #ffc107;
+    padding: 0.75rem;
+    border-radius: 0.375rem;
+    margin-bottom: 0;
+}
+
+/* ==========================================
+   SISWA DETAIL PEMBAYARAN
+   Halaman detail pembayaran siswa
+   ========================================== */
+.siswa-payment-detail-card {
+    border-left: 4px solid;
+    margin-bottom: 1rem;
+}
+
+.siswa-payment-detail-card.status-valid {
+    border-left-color: #28a745;
+}
+
+.siswa-payment-detail-card.status-menunggu {
+    border-left-color: #ffc107;
+}
+
+.siswa-payment-detail-card.status-tolak {
+    border-left-color: #dc3545;
+}
+
+.siswa-payment-detail-card .payment-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.siswa-payment-detail-card .payment-info-item {
+    padding: 0.5rem;
+}
+
+.siswa-payment-detail-card .payment-info-item strong {
+    display: block;
+    font-size: 0.875rem;
+    color: #6c757d;
+    margin-bottom: 0.25rem;
+}
+
+.siswa-payment-detail-card .payment-info-item span {
+    font-size: 1rem;
+    color: #212529;
+}
+
+/* ==========================================
+   SISWA PROGRESS INDICATOR
+   Progress bar untuk pembayaran
+   ========================================== */
+.siswa-progress-wrapper {
+    margin: 1rem 0;
+}
+
+.siswa-progress-wrapper .progress-label {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.siswa-progress-wrapper .progress {
+    height: 1.5rem;
+    border-radius: 0.5rem;
+}
+
+.siswa-progress-wrapper .progress-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.875rem;
+}
+
+/* ==========================================
+   SISWA RESPONSIVE STYLES
+   ========================================== */
+@media (max-width: 767.98px) {
+    .siswa-payment-detail-card .payment-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .siswa-profile-section .profile-info-row {
+        flex-direction: column;
+    }
+
+    .siswa-profile-section .profile-info-label {
+        width: 100%;
+        margin-bottom: 0.25rem;
+    }
+
+    .siswa-keuangan-summary .summary-card {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .siswa-payment-table table {
+        font-size: 0.75rem;
+    }
+
+    .siswa-payment-table .btn-sm {
+        font-size: 0.7rem;
+        padding: 0.25rem 0.5rem;
+    }
+
+    .siswa-profile-section .profile-avatar-large {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
+    }
+}

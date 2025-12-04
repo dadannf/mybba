@@ -1,0 +1,379 @@
+/* ==================================================
+   PRINT STYLES CSS
+   File ini berisi semua styling untuk print/cetak
+   Digunakan oleh halaman keuangan, laporan, dll
+   ================================================== */
+
+/* ==========================================
+   PRINT GENERAL SETTINGS
+   Setting umum untuk semua halaman print
+   ========================================== */
+@media print {
+
+    /* Sembunyikan elemen yang tidak perlu saat print */
+    .sidebar,
+    .topbar,
+    .btn,
+    .no-print,
+    .form-control,
+    .form-select,
+    .card-footer,
+    button,
+    .alert,
+    input,
+    select,
+    textarea {
+        display: none !important;
+    }
+
+    /* Atur layout untuk print */
+    .main-wrapper {
+        margin-left: 0 !important;
+        padding: 20px !important;
+    }
+
+    body {
+        background: white !important;
+        color: black !important;
+    }
+
+    .card {
+        border: 1px solid #ddd !important;
+        box-shadow: none !important;
+        page-break-inside: avoid;
+        margin-bottom: 20px !important;
+    }
+
+    /* Hindari page break di tengah-tengah elemen */
+    table,
+    tr,
+    td,
+    th,
+    img {
+        page-break-inside: avoid;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        page-break-after: avoid;
+    }
+}
+
+/* ==========================================
+   PRINT HEADER
+   Header untuk laporan print
+   ========================================== */
+.print-header {
+    display: none;
+}
+
+@media print {
+    .print-header {
+        display: block !important;
+        text-align: center;
+        margin-bottom: 30px;
+        border-bottom: 3px solid #000;
+        padding-bottom: 15px;
+    }
+
+    .print-header h2 {
+        margin: 0;
+        font-weight: bold;
+        font-size: 24px;
+        color: black;
+    }
+
+    .print-header h3 {
+        margin: 5px 0;
+        font-size: 18px;
+        color: black;
+    }
+
+    .print-header p {
+        margin: 5px 0;
+        font-size: 14px;
+        color: black;
+    }
+
+    .print-header small {
+        font-size: 12px;
+        color: #555;
+    }
+}
+
+/* ==========================================
+   PRINT INFO BOX
+   Box informasi filter/parameter print
+   ========================================== */
+.print-info {
+    display: none;
+}
+
+@media print {
+    .print-info {
+        display: block !important;
+        margin-bottom: 20px;
+        padding: 10px;
+        background: #f5f5f5;
+        border: 1px solid #ddd;
+        page-break-inside: avoid;
+    }
+
+    .print-info strong {
+        color: black;
+    }
+}
+
+/* ==========================================
+   PRINT STATISTICS BOXES
+   Box untuk menampilkan statistik di print
+   ========================================== */
+.stats-print {
+    display: none;
+}
+
+@media print {
+    .stats-print {
+        display: flex !important;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        page-break-inside: avoid;
+    }
+
+    .stats-print .stat-box {
+        flex: 1;
+        border: 2px solid #333;
+        padding: 10px;
+        margin: 0 5px;
+        text-align: center;
+    }
+
+    .stats-print .stat-box h6 {
+        margin: 0;
+        font-size: 12px;
+        font-weight: normal;
+        color: black;
+    }
+
+    .stats-print .stat-box h4 {
+        margin: 5px 0;
+        font-size: 16px;
+        font-weight: bold;
+        color: black;
+    }
+}
+
+/* ==========================================
+   PRINT TABLE STYLES
+   Styling tabel untuk print
+   ========================================== */
+@media print {
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 11px;
+        color: black !important;
+    }
+
+    table th,
+    table td {
+        border: 1px solid #333 !important;
+        padding: 6px !important;
+        color: black !important;
+    }
+
+    table thead {
+        background-color: #f0f0f0 !important;
+        font-weight: bold;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    table thead th {
+        color: black !important;
+    }
+
+    table tbody tr {
+        background-color: white !important;
+    }
+
+    table tfoot {
+        background-color: #f0f0f0 !important;
+        font-weight: bold;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    table tfoot th,
+    table tfoot td {
+        color: black !important;
+    }
+}
+
+/* ==========================================
+   PRINT PROGRESS BAR
+   Progress bar untuk print
+   ========================================== */
+@media print {
+    .progress {
+        border: 1px solid #333 !important;
+        height: 20px !important;
+        background-color: #e9ecef !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .progress-bar {
+        background-color: #28a745 !important;
+        color: #000 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* ==========================================
+   PRINT BADGE STYLES
+   Badge styling untuk print
+   ========================================== */
+@media print {
+    .badge {
+        border: 1px solid #333 !important;
+        padding: 2px 6px !important;
+        background-color: #e9ecef !important;
+        color: #000 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    .badge.bg-success {
+        background-color: #d4edda !important;
+        border-color: #28a745 !important;
+    }
+
+    .badge.bg-warning {
+        background-color: #fff3cd !important;
+        border-color: #ffc107 !important;
+    }
+
+    .badge.bg-danger {
+        background-color: #f8d7da !important;
+        border-color: #dc3545 !important;
+    }
+
+    .badge.bg-info {
+        background-color: #d1ecf1 !important;
+        border-color: #0dcaf0 !important;
+    }
+}
+
+/* ==========================================
+   PRINT FOOTER
+   Footer untuk laporan print
+   ========================================== */
+.print-footer {
+    display: none;
+}
+
+@media print {
+    .print-footer {
+        display: block !important;
+        margin-top: 30px;
+        padding-top: 15px;
+        border-top: 2px solid #000;
+        text-align: right;
+        page-break-inside: avoid;
+    }
+
+    .print-footer p {
+        margin: 5px 0;
+        font-size: 12px;
+        color: black;
+    }
+
+    .print-footer strong {
+        color: black;
+    }
+}
+
+/* ==========================================
+   PRINT SIGNATURE SECTION
+   Bagian tanda tangan untuk print
+   ========================================== */
+@media print {
+    .print-signature {
+        display: flex !important;
+        justify-content: space-between;
+        margin-top: 40px;
+        page-break-inside: avoid;
+    }
+
+    .print-signature .signature-box {
+        text-align: center;
+        width: 200px;
+    }
+
+    .print-signature .signature-line {
+        margin-top: 60px;
+        border-bottom: 1px solid #000;
+        width: 200px;
+    }
+
+    .print-signature p {
+        margin: 5px 0;
+        font-size: 12px;
+        color: black;
+    }
+}
+
+/* ==========================================
+   PAGE BREAK UTILITIES
+   Utility untuk mengatur page break
+   ========================================== */
+@media print {
+    .page-break-before {
+        page-break-before: always;
+    }
+
+    .page-break-after {
+        page-break-after: always;
+    }
+
+    .no-page-break {
+        page-break-inside: avoid;
+    }
+}
+
+/* ==========================================
+   PRINT LANDSCAPE MODE
+   Setting khusus untuk landscape
+   ========================================== */
+@media print and (orientation: landscape) {
+    body {
+        margin: 0;
+        padding: 10mm;
+    }
+
+    table {
+        font-size: 9px;
+    }
+
+    .print-header h2 {
+        font-size: 20px;
+    }
+}
+
+/* ==========================================
+   PRINT A4 PAGE SIZE
+   Optimasi untuk ukuran A4
+   ========================================== */
+@page {
+    size: A4;
+    margin: 15mm;
+}

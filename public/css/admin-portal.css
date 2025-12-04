@@ -1,0 +1,399 @@
+/* ==================================================
+   ADMIN PORTAL STYLES
+   File ini berisi styling khusus untuk portal admin
+   Namespace: .admin-portal
+   ================================================== */
+
+/* ==========================================
+   ADMIN PORTAL WRAPPER
+   Container utama untuk portal admin
+   ========================================== */
+.admin-portal {
+    /* Base styling untuk portal admin */
+}
+
+/* ==========================================
+   ADMIN STATS CARDS
+   Card statistik di dashboard admin
+   ========================================== */
+.admin-stats-card {
+    border: none;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.admin-stats-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.admin-stats-card .card-body {
+    padding: 1.5rem;
+    position: relative;
+}
+
+.admin-stats-card .stats-icon {
+    font-size: 3rem;
+    opacity: 0.5;
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+}
+
+.admin-stats-card h6 {
+    margin-bottom: 0.5rem;
+    opacity: 0.75;
+}
+
+.admin-stats-card h3 {
+    margin: 0;
+    font-weight: bold;
+}
+
+/* ==========================================
+   ADMIN DATA TABLE
+   Tabel data untuk admin
+   ========================================== */
+.admin-data-table {
+    /* Wrapper untuk tabel admin */
+}
+
+.admin-data-table .table {
+    margin-bottom: 0;
+}
+
+.admin-data-table .table thead {
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
+
+.admin-data-table .table tbody tr {
+    transition: background-color 0.2s;
+}
+
+.admin-data-table .table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.admin-data-table .action-buttons {
+    display: flex;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+}
+
+.admin-data-table .action-buttons .btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+}
+
+/* ==========================================
+   ADMIN FILTER SECTION
+   Section untuk filter dan search
+   ========================================== */
+.admin-filter-section {
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.admin-filter-section .form-label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.admin-filter-section .btn-filter {
+    width: 100%;
+}
+
+/* ==========================================
+   ADMIN KEUANGAN DETAIL
+   Halaman detail keuangan admin
+   ========================================== */
+.admin-keuangan-detail .student-info-card {
+    border-left: 4px solid #667eea;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.admin-keuangan-detail .student-info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.admin-keuangan-detail .student-info-item strong {
+    display: block;
+    font-size: 0.875rem;
+    color: #6c757d;
+    margin-bottom: 0.25rem;
+}
+
+.admin-keuangan-detail .payment-list-card {
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.admin-keuangan-detail .payment-item {
+    border: 1px solid #e9ecef;
+    border-radius: 0.375rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    transition: box-shadow 0.2s;
+}
+
+.admin-keuangan-detail .payment-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.admin-keuangan-detail .payment-item.status-valid {
+    border-left: 4px solid #28a745;
+}
+
+.admin-keuangan-detail .payment-item.status-menunggu {
+    border-left: 4px solid #ffc107;
+}
+
+.admin-keuangan-detail .payment-item.status-tolak {
+    border-left: 4px solid #dc3545;
+}
+
+/* ==========================================
+   ADMIN VALIDATION MODAL
+   Modal untuk validasi pembayaran
+   ========================================== */
+.admin-validation-modal .modal-header {
+    background: linear-gradient(135deg, #064b7a 0%, #0b63a8 100%);
+    color: white;
+}
+
+.admin-validation-modal .validation-info {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 0.375rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.admin-validation-modal .validation-info-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.admin-validation-modal .validation-info-row:last-child {
+    border-bottom: none;
+}
+
+.admin-validation-modal .validation-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.admin-validation-modal .bukti-preview {
+    max-width: 100%;
+    max-height: 400px;
+    border: 1px solid #dee2e6;
+    border-radius: 0.375rem;
+}
+
+/* ==========================================
+   ADMIN FORM SECTION
+   Form untuk tambah/edit data
+   ========================================== */
+.admin-form-section {
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 2rem;
+}
+
+.admin-form-section .form-header {
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.admin-form-section .form-header h4 {
+    margin: 0;
+    font-weight: 600;
+}
+
+.admin-form-section .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.admin-form-section .form-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+    padding-top: 1rem;
+    border-top: 2px solid #e9ecef;
+}
+
+/* ==========================================
+   ADMIN PRINT BUTTON GROUP
+   Button group untuk print
+   ========================================== */
+.admin-print-buttons {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.admin-print-buttons .btn {
+    padding: 0.5rem 1rem;
+}
+
+/* ==========================================
+   ADMIN MONTHLY PAYMENT TABLE
+   Tabel pembayaran bulanan (Juli-Juni)
+   ========================================== */
+.admin-monthly-table {
+    font-size: 0.875rem;
+}
+
+.admin-monthly-table table {
+    width: 100%;
+}
+
+.admin-monthly-table th,
+.admin-monthly-table td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 0.5rem 0.25rem;
+}
+
+.admin-monthly-table .month-header {
+    font-weight: 600;
+    font-size: 0.75rem;
+}
+
+.admin-monthly-table .total-row {
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
+
+/* ==========================================
+   ADMIN ALERT NOTIFICATIONS
+   Notifikasi untuk admin
+   ========================================== */
+.admin-alert {
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: start;
+    gap: 0.75rem;
+}
+
+.admin-alert .alert-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.admin-alert .alert-content {
+    flex: 1;
+}
+
+/* ==========================================
+   ADMIN BREADCRUMB
+   Breadcrumb navigation
+   ========================================== */
+.admin-breadcrumb {
+    background-color: transparent;
+    padding: 0.75rem 0;
+    margin-bottom: 1rem;
+}
+
+.admin-breadcrumb .breadcrumb {
+    margin: 0;
+    background-color: transparent;
+}
+
+/* ==========================================
+   ADMIN PROGRESS OVERVIEW
+   Overview progress pembayaran
+   ========================================== */
+.admin-progress-overview {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.admin-progress-overview .progress-card {
+    text-align: center;
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.admin-progress-overview .progress-card .progress-value {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 0.5rem 0;
+}
+
+.admin-progress-overview .progress-card .progress-label {
+    font-size: 0.875rem;
+    opacity: 0.75;
+}
+
+/* ==========================================
+   ADMIN RESPONSIVE STYLES
+   ========================================== */
+@media (max-width: 991.98px) {
+    .admin-keuangan-detail .student-info-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .admin-progress-overview {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 767.98px) {
+    .admin-keuangan-detail .student-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .admin-data-table .action-buttons {
+        flex-direction: column;
+    }
+
+    .admin-data-table .action-buttons .btn {
+        width: 100%;
+    }
+
+    .admin-print-buttons {
+        flex-direction: column;
+    }
+
+    .admin-print-buttons .btn {
+        width: 100%;
+    }
+
+    .admin-progress-overview {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .admin-form-section {
+        padding: 1rem;
+    }
+
+    .admin-filter-section {
+        padding: 1rem;
+    }
+
+    .admin-monthly-table {
+        font-size: 0.7rem;
+    }
+
+    .admin-monthly-table th,
+    .admin-monthly-table td {
+        padding: 0.25rem 0.1rem;
+    }
+}

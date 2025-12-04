@@ -1,0 +1,77 @@
+# OCR System - Ignore Files
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+ENV/
+env/
+.venv
+
+# Environment Variables
+.env
+
+# Logs
+logs/
+*.log
+
+# Uploaded Files
+uploads/*
+!uploads/.gitkeep
+
+# Models
+models_pretrained/*
+!models_pretrained/.gitkeep
+
+# Fine-tuning
+fine_tuning/dataset/images/*
+fine_tuning/dataset/labels/*
+fine_tuning/configs/*.yml
+!fine_tuning/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Database
+*.db
+*.sqlite
+
+# Temp
+temp/
+tmp/
+*.tmp
+
+# Coverage
+.coverage
+htmlcov/
+.pytest_cache/

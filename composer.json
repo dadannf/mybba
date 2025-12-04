@@ -1,0 +1,20 @@
+{
+    "name": "mybba/school-management",
+    "type": "project",
+    "description": "School Management Information System - Pure PHP",
+    "keywords": ["school", "management", "php"],
+    "license": "MIT",
+    "require": {
+        "php": "^8.2"
+    },
+    "autoload": {
+        "files": [
+            "public/shared/helpers/functions.php"
+        ]
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true
+    }
+}

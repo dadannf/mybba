@@ -1,0 +1,395 @@
+/* ==================================================
+   AUTH PAGES STYLES
+   File ini berisi styling untuk halaman login & register
+   ================================================== */
+
+/* ==========================================
+   AUTH CONTAINER
+   Container utama untuk halaman auth
+   ========================================== */
+.auth-wrapper {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 2rem 1rem;
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 450px;
+}
+
+/* ==========================================
+   AUTH CARD
+   Card untuk form login/register
+   ========================================== */
+.auth-card {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.auth-card-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 2rem;
+    text-align: center;
+}
+
+.auth-card-header h3 {
+    margin: 0;
+    font-weight: 700;
+    font-size: 1.75rem;
+}
+
+.auth-card-header p {
+    margin: 0.5rem 0 0;
+    opacity: 0.9;
+}
+
+.auth-card-body {
+    padding: 2rem;
+}
+
+/* ==========================================
+   AUTH FORM
+   Form styling untuk login/register
+   ========================================== */
+.auth-form .form-group {
+    margin-bottom: 1.25rem;
+}
+
+.auth-form .form-label {
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.auth-form .form-control,
+.auth-form .form-select {
+    padding: 0.75rem 1rem;
+    border: 2px solid #e9ecef;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+.auth-form .form-control:focus,
+.auth-form .form-select:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+.auth-form .input-group {
+    position: relative;
+}
+
+.auth-form .input-group-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+    font-size: 1.25rem;
+    z-index: 10;
+}
+
+.auth-form .form-control-with-icon {
+    padding-left: 3rem;
+}
+
+/* ==========================================
+   AUTH BUTTONS
+   Button styling untuk auth
+   ========================================== */
+.auth-btn {
+    width: 100%;
+    padding: 0.875rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+.auth-btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.auth-btn-primary:hover {
+    background: linear-gradient(135deg, #5568d3 0%, #653a8b 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+.auth-btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.auth-btn-secondary:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+}
+
+/* ==========================================
+   AUTH LINKS
+   Link untuk switch antara login/register
+   ========================================== */
+.auth-links {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e9ecef;
+}
+
+.auth-links p {
+    margin: 0;
+    color: #6c757d;
+}
+
+.auth-links a {
+    color: #667eea;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.auth-links a:hover {
+    color: #764ba2;
+    text-decoration: underline;
+}
+
+/* ==========================================
+   AUTH LOGO
+   Logo untuk auth pages
+   ========================================== */
+.auth-logo {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1rem;
+    background: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.auth-logo svg,
+.auth-logo i {
+    font-size: 2.5rem;
+    color: #667eea;
+}
+
+/* ==========================================
+   AUTH ALERTS
+   Alert untuk notifikasi auth
+   ========================================== */
+.auth-alert {
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: start;
+    gap: 0.75rem;
+    border: none;
+}
+
+.auth-alert-success {
+    background-color: #d1e7dd;
+    color: #0f5132;
+}
+
+.auth-alert-danger {
+    background-color: #f8d7da;
+    color: #842029;
+}
+
+.auth-alert-warning {
+    background-color: #fff3cd;
+    color: #664d03;
+}
+
+.auth-alert-info {
+    background-color: #cff4fc;
+    color: #055160;
+}
+
+.auth-alert i {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+}
+
+/* ==========================================
+   AUTH CHECKBOX
+   Remember me checkbox styling
+   ========================================== */
+.auth-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 1rem 0;
+}
+
+.auth-checkbox input[type="checkbox"] {
+    width: 1.25rem;
+    height: 1.25rem;
+    cursor: pointer;
+}
+
+.auth-checkbox label {
+    margin: 0;
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* ==========================================
+   AUTH FOOTER
+   Footer text untuk auth pages
+   ========================================== */
+.auth-footer {
+    text-align: center;
+    margin-top: 2rem;
+    color: white;
+}
+
+.auth-footer p {
+    margin: 0.25rem 0;
+    opacity: 0.9;
+}
+
+.auth-footer a {
+    color: white;
+    text-decoration: underline;
+}
+
+/* ==========================================
+   PASSWORD TOGGLE
+   Toggle untuk show/hide password
+   ========================================== */
+.password-toggle-wrapper {
+    position: relative;
+}
+
+.password-toggle-btn {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #6c757d;
+    cursor: pointer;
+    padding: 0.25rem;
+    transition: color 0.2s;
+}
+
+.password-toggle-btn:hover {
+    color: #495057;
+}
+
+/* ==========================================
+   AUTH DIVIDER
+   Divider dengan text (OR)
+   ========================================== */
+.auth-divider {
+    display: flex;
+    align-items: center;
+    margin: 1.5rem 0;
+    color: #6c757d;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.auth-divider span {
+    padding: 0 1rem;
+    font-size: 0.875rem;
+}
+
+/* ==========================================
+   AUTH RESPONSIVE
+   ========================================== */
+@media (max-width: 575.98px) {
+    .auth-wrapper {
+        padding: 1rem 0.5rem;
+    }
+
+    .auth-card-header {
+        padding: 1.5rem 1rem;
+    }
+
+    .auth-card-header h3 {
+        font-size: 1.5rem;
+    }
+
+    .auth-card-body {
+        padding: 1.5rem 1rem;
+    }
+
+    .auth-logo {
+        width: 60px;
+        height: 60px;
+    }
+
+    .auth-logo svg,
+    .auth-logo i {
+        font-size: 2rem;
+    }
+}
+
+/* ==========================================
+   AUTH ANIMATIONS
+   Animasi untuk auth pages
+   ========================================== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.auth-card {
+    animation: fadeInUp 0.5s ease-out;
+}
+
+.auth-form .form-group {
+    animation: fadeInUp 0.5s ease-out;
+    animation-fill-mode: both;
+}
+
+.auth-form .form-group:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.auth-form .form-group:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.auth-form .form-group:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.auth-form .form-group:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.auth-form .form-group:nth-child(5) {
+    animation-delay: 0.5s;
+}

@@ -1,0 +1,874 @@
+/* ==================================================
+   RESPONSIVE DESIGN - COMPREHENSIVE
+   File CSS responsif menyeluruh untuk semua halaman
+   Mobile First Approach - Support all devices
+   
+   Breakpoints:
+   - xs: < 576px   (Mobile portrait)
+   - sm: ≥ 576px   (Mobile landscape)
+   - md: ≥ 768px   (Tablet portrait)
+   - lg: ≥ 992px   (Tablet landscape / Desktop)
+   - xl: ≥ 1200px  (Desktop)
+   - xxl: ≥ 1400px (Large desktop)
+   ================================================== */
+
+/* ==========================================
+   BASE RESPONSIVE SETTINGS
+   ========================================== */
+html {
+    font-size: 16px; /* Base font size */
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+body {
+    overflow-x: hidden;
+    min-width: 320px; /* Minimum width untuk device terkecil */
+}
+
+img,
+svg,
+video,
+canvas {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ==========================================
+   CONTAINER RESPONSIVE
+   ========================================== */
+.container,
+.container-fluid {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* ==========================================
+   GRID & FLEXBOX RESPONSIVE
+   ========================================== */
+.row {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+[class*="col-"] {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* ==========================================
+   SIDEBAR RESPONSIVE
+   ========================================== */
+/* Extra Large Devices (Desktop ≥ 1200px) */
+@media (min-width: 1200px) {
+    .sidebar {
+        width: var(--sidebar-width, 260px);
+    }
+    
+    .main-wrapper {
+        margin-left: var(--sidebar-width, 260px);
+    }
+}
+
+/* Large Devices (Desktop 992px - 1199px) */
+@media (max-width: 1199.98px) and (min-width: 992px) {
+    .sidebar {
+        width: 240px;
+    }
+    
+    .main-wrapper {
+        margin-left: 240px;
+    }
+    
+    .sidebar .nav-link {
+        padding: 0.65rem 0.85rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Medium Devices (Tablet 768px - 991px) */
+@media (max-width: 991.98px) and (min-width: 768px) {
+    .sidebar {
+        width: 220px;
+    }
+    
+    .main-wrapper {
+        margin-left: 220px;
+    }
+    
+    .sidebar .nav-link {
+        padding: 0.6rem 0.75rem;
+        font-size: 0.85rem;
+    }
+    
+    .sidebar .profile-avatar {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .sidebar .profile-name {
+        font-size: 0.95rem;
+    }
+}
+
+/* Small Devices & Below (Mobile < 768px) */
+@media (max-width: 767.98px) {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 1050;
+        width: 260px;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+    
+    body.sidebar-open .sidebar {
+        transform: translateX(0);
+        box-shadow: 2px 0 20px rgba(0, 0, 0, 0.3);
+    }
+    
+    .main-wrapper {
+        margin-left: 0;
+        width: 100%;
+    }
+    
+    .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1040;
+    }
+    
+    body.sidebar-open .overlay {
+        display: block;
+    }
+}
+
+/* ==========================================
+   TOPBAR RESPONSIVE
+   ========================================== */
+@media (max-width: 991.98px) {
+    .topbar {
+        padding: 0.5rem 1rem;
+    }
+    
+    .topbar .app-title {
+        font-size: 1rem;
+    }
+    
+    .btn-toggle {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .topbar {
+        padding: 0.5rem 0.75rem;
+    }
+    
+    .topbar .app-title {
+        font-size: 0.9rem;
+    }
+    
+    .btn-toggle {
+        font-size: 1rem;
+        padding: 0.25rem 0.5rem;
+    }
+}
+
+/* ==========================================
+   CONTENT RESPONSIVE
+   ========================================== */
+@media (max-width: 991.98px) {
+    .content {
+        padding: 1.25rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .content {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .content {
+        padding: 0.75rem;
+    }
+}
+
+/* ==========================================
+   CARDS RESPONSIVE
+   ========================================== */
+@media (max-width: 767.98px) {
+    .card {
+        margin-bottom: 1rem;
+    }
+    
+    .card-body {
+        padding: 1rem;
+    }
+    
+    .info-box,
+    .admin-stats-card {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .card-body {
+        padding: 0.75rem;
+    }
+    
+    .card-title {
+        font-size: 1rem;
+    }
+    
+    .info-box .display-6 {
+        font-size: 1.5rem;
+    }
+}
+
+/* ==========================================
+   TABLES RESPONSIVE
+   ========================================== */
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+@media (max-width: 991.98px) {
+    .table {
+        font-size: 0.875rem;
+    }
+    
+    .table th,
+    .table td {
+        padding: 0.5rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .table {
+        font-size: 0.8rem;
+    }
+    
+    .table th,
+    .table td {
+        padding: 0.4rem 0.3rem;
+        white-space: nowrap;
+    }
+    
+    .table .btn {
+        padding: 0.25rem 0.5rem;
+        font-size: 0.75rem;
+    }
+    
+    /* Stack action buttons vertically on mobile */
+    .action-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    
+    .action-buttons .btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .table {
+        font-size: 0.7rem;
+    }
+    
+    .table th,
+    .table td {
+        padding: 0.3rem 0.2rem;
+    }
+}
+
+/* ==========================================
+   FORMS RESPONSIVE
+   ========================================== */
+@media (max-width: 767.98px) {
+    .form-group {
+        margin-bottom: 1rem;
+    }
+    
+    .form-label {
+        font-size: 0.9rem;
+    }
+    
+    .form-control,
+    .form-select {
+        font-size: 0.9rem;
+        padding: 0.5rem 0.75rem;
+    }
+    
+    .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .form-label {
+        font-size: 0.85rem;
+    }
+    
+    .form-control,
+    .form-select {
+        font-size: 0.85rem;
+        padding: 0.4rem 0.6rem;
+    }
+    
+    .btn {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* ==========================================
+   BUTTONS RESPONSIVE
+   ========================================== */
+@media (max-width: 767.98px) {
+    .btn-group {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .btn-group .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+    
+    .btn-group .btn:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/* ==========================================
+   MODALS RESPONSIVE
+   ========================================== */
+@media (max-width: 767.98px) {
+    .modal-dialog {
+        margin: 0.5rem;
+        max-width: calc(100% - 1rem);
+    }
+    
+    .modal-content {
+        border-radius: 0.5rem;
+    }
+    
+    .modal-header {
+        padding: 1rem;
+    }
+    
+    .modal-body {
+        padding: 1rem;
+    }
+    
+    .modal-footer {
+        padding: 0.75rem;
+        flex-direction: column;
+    }
+    
+    .modal-footer .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+    
+    .modal-footer .btn:last-child {
+        margin-bottom: 0;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .modal-dialog {
+        margin: 0.25rem;
+        max-width: calc(100% - 0.5rem);
+    }
+    
+    .modal-header,
+    .modal-body,
+    .modal-footer {
+        padding: 0.75rem;
+    }
+    
+    .modal-title {
+        font-size: 1rem;
+    }
+}
+
+/* ==========================================
+   ALERTS RESPONSIVE
+   ========================================== */
+@media (max-width: 575.98px) {
+    .alert {
+        padding: 0.75rem;
+        font-size: 0.875rem;
+    }
+    
+    .alert i {
+        font-size: 1rem;
+    }
+}
+
+/* ==========================================
+   BADGES RESPONSIVE
+   ========================================== */
+@media (max-width: 575.98px) {
+    .badge {
+        font-size: 0.7rem;
+        padding: 0.25rem 0.5rem;
+    }
+}
+
+/* ==========================================
+   PROGRESS BARS RESPONSIVE
+   ========================================== */
+@media (max-width: 575.98px) {
+    .progress {
+        height: 20px;
+    }
+    
+    .progress-bar {
+        font-size: 0.75rem;
+    }
+}
+
+/* ==========================================
+   ADMIN SPECIFIC RESPONSIVE
+   ========================================== */
+/* Student Info Grid */
+@media (max-width: 991.98px) {
+    .admin-keuangan-detail .student-info-grid,
+    .student-info-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 767.98px) {
+    .admin-keuangan-detail .student-info-grid,
+    .student-info-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Admin Filter Section */
+@media (max-width: 767.98px) {
+    .admin-filter-section {
+        padding: 1rem;
+    }
+    
+    .admin-filter-section .row > [class*="col-"] {
+        margin-bottom: 1rem;
+    }
+    
+    .admin-filter-section .row > [class*="col-"]:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/* Admin Print Buttons */
+@media (max-width: 767.98px) {
+    .admin-print-buttons {
+        flex-direction: column;
+    }
+    
+    .admin-print-buttons .btn {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+    
+    .admin-print-buttons .btn:last-child {
+        margin-bottom: 0;
+    }
+}
+
+/* Admin Progress Overview */
+@media (max-width: 991.98px) {
+    .admin-progress-overview {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 575.98px) {
+    .admin-progress-overview {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ==========================================
+   SISWA PORTAL RESPONSIVE
+   ========================================== */
+/* Payment Info Grid */
+@media (max-width: 767.98px) {
+    .siswa-payment-detail-card .payment-info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .siswa-profile-section .profile-info-row {
+        flex-direction: column;
+    }
+    
+    .siswa-profile-section .profile-info-label {
+        width: 100%;
+        margin-bottom: 0.25rem;
+        font-size: 0.85rem;
+    }
+    
+    .siswa-profile-section .profile-info-value {
+        font-size: 0.9rem;
+    }
+}
+
+/* Summary Cards */
+@media (max-width: 767.98px) {
+    .siswa-keuangan-summary .summary-card {
+        margin-bottom: 1rem;
+    }
+}
+
+/* Profile Avatar */
+@media (max-width: 575.98px) {
+    .siswa-profile-section .profile-avatar-large {
+        width: 80px;
+        height: 80px;
+        font-size: 2rem;
+    }
+}
+
+/* Payment Table */
+@media (max-width: 767.98px) {
+    .siswa-payment-table table {
+        font-size: 0.75rem;
+    }
+    
+    .siswa-payment-table .btn-sm {
+        font-size: 0.7rem;
+        padding: 0.25rem 0.5rem;
+    }
+}
+
+/* ==========================================
+   AUTH PAGES RESPONSIVE
+   ========================================== */
+@media (max-width: 767.98px) {
+    .auth-wrapper {
+        padding: 1rem 0.5rem;
+    }
+    
+    .auth-container {
+        max-width: 100%;
+    }
+    
+    .auth-card-header {
+        padding: 1.5rem 1rem;
+    }
+    
+    .auth-card-header h3 {
+        font-size: 1.5rem;
+    }
+    
+    .auth-card-body {
+        padding: 1.5rem 1rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .auth-wrapper {
+        padding: 0.5rem;
+    }
+    
+    .auth-card-header {
+        padding: 1.25rem 0.75rem;
+    }
+    
+    .auth-card-header h3 {
+        font-size: 1.25rem;
+    }
+    
+    .auth-card-body {
+        padding: 1.25rem 0.75rem;
+    }
+    
+    .auth-logo {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .auth-logo svg,
+    .auth-logo i {
+        font-size: 2rem;
+    }
+    
+    .auth-btn {
+        padding: 0.75rem 1.25rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* ==========================================
+   DASHBOARD STATS RESPONSIVE
+   ========================================== */
+@media (max-width: 991.98px) {
+    .row.g-3 > [class*="col-md"] {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .admin-stats-card .stats-icon {
+        font-size: 2rem;
+        bottom: 0.5rem;
+        right: 0.5rem;
+    }
+    
+    .admin-stats-card h3 {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .admin-stats-card h3 {
+        font-size: 1.25rem;
+    }
+    
+    .admin-stats-card h6 {
+        font-size: 0.875rem;
+    }
+}
+
+/* ==========================================
+   INFORMASI PAGE RESPONSIVE
+   ========================================== */
+@media (max-width: 767.98px) {
+    .informasi-card {
+        margin-bottom: 1rem;
+    }
+    
+    .informasi-card .card-img-top {
+        max-height: 200px;
+        object-fit: cover;
+    }
+}
+
+/* ==========================================
+   PRINT RESPONSIVE
+   ========================================== */
+@media print {
+    body {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .sidebar,
+    .topbar,
+    .overlay,
+    .no-print,
+    .btn,
+    button {
+        display: none !important;
+    }
+    
+    .main-wrapper {
+        margin-left: 0 !important;
+        width: 100% !important;
+    }
+    
+    .content {
+        padding: 0 !important;
+    }
+    
+    .table {
+        page-break-inside: auto;
+    }
+    
+    tr {
+        page-break-inside: avoid;
+        page-break-after: auto;
+    }
+    
+    thead {
+        display: table-header-group;
+    }
+    
+    tfoot {
+        display: table-footer-group;
+    }
+}
+
+/* ==========================================
+   LANDSCAPE ORIENTATION
+   ========================================== */
+@media (max-width: 767.98px) and (orientation: landscape) {
+    .content {
+        padding: 0.5rem;
+    }
+    
+    .card-body {
+        padding: 0.75rem;
+    }
+    
+    .modal-dialog {
+        max-height: 90vh;
+        overflow-y: auto;
+    }
+}
+
+/* ==========================================
+   TOUCH DEVICES
+   Optimasi untuk device dengan touch
+   ========================================== */
+@media (hover: none) and (pointer: coarse) {
+    /* Increase tap targets for touch devices */
+    .btn,
+    a,
+    button,
+    input[type="button"],
+    input[type="submit"] {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .nav-link {
+        padding: 0.75rem 1rem;
+    }
+    
+    /* Remove hover effects on touch devices */
+    .card:hover,
+    .info-box:hover,
+    .admin-stats-card:hover {
+        transform: none;
+    }
+}
+
+/* ==========================================
+   HIGH DPI / RETINA DISPLAYS
+   ========================================== */
+@media (-webkit-min-device-pixel-ratio: 2),
+       (min-resolution: 192dpi) {
+    /* Optimizations for retina displays */
+    body {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+/* ==========================================
+   REDUCED MOTION
+   Respect user's motion preferences
+   ========================================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* ==========================================
+   DARK MODE SUPPORT (FUTURE)
+   Prepared for dark mode implementation
+   ========================================== */
+@media (prefers-color-scheme: dark) {
+    /* Dark mode styles will be added here */
+    /* Currently disabled, uncomment when implementing dark mode */
+    /*
+    :root {
+        --bg-main: #1a1a1a;
+        --bg-card: #2d2d2d;
+        --text-primary: #ffffff;
+        --text-secondary: #b0b0b0;
+    }
+    */
+}
+
+/* ==========================================
+   UTILITY RESPONSIVE CLASSES
+   ========================================== */
+/* Hide on specific breakpoints */
+.hide-xs {
+    display: none !important;
+}
+
+@media (min-width: 576px) {
+    .hide-xs {
+        display: block !important;
+    }
+    .hide-sm {
+        display: none !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .hide-sm {
+        display: block !important;
+    }
+    .hide-md {
+        display: none !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .hide-md {
+        display: block !important;
+    }
+    .hide-lg {
+        display: none !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .hide-lg {
+        display: block !important;
+    }
+}
+
+/* Show only on specific breakpoints */
+.show-xs-only {
+    display: block !important;
+}
+
+@media (min-width: 576px) {
+    .show-xs-only {
+        display: none !important;
+    }
+}
+
+.show-sm-only {
+    display: none !important;
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .show-sm-only {
+        display: block !important;
+    }
+}
+
+.show-md-only {
+    display: none !important;
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .show-md-only {
+        display: block !important;
+    }
+}
+
+/* ==========================================
+   END OF RESPONSIVE.CSS
+   ================================================== */

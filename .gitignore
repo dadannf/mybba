@@ -1,0 +1,50 @@
+# Environment & Config
+.env
+.env.backup
+.env.production
+
+# IDE & Editor
+.vscode/
+.idea/
+.phpactor.json
+.fleet/
+.nova/
+.zed/
+
+# Dependencies
+/vendor/
+/node_modules/
+
+# Logs
+*.log
+/storage/logs/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Uploads (optional - uncomment if you don't want to track uploads)
+# /public/uploads/siswa/*
+# /public/uploads/bukti_bayar/*
+# /public/uploads/informasi/*
+# !/public/uploads/.gitkeep
+
+# Cache & Temp
+/storage/*.key
+/storage/pail/
+/.phpunit.cache
+.phpunit.result.cache
+
+# Build (if using build tools)
+/public/build/
+/public/hot/
+
+# Laravel specific (legacy - can be removed if not using Laravel)
+/public/storage
+/auth.json
+Homestead.json
+Homestead.yaml
+
+# Test files (optional)
+# test_*.php
+# debug_*.py

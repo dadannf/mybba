@@ -1,0 +1,150 @@
+╔════════════════════════════════════════════════════════════╗
+║           MyBBA Ngrok Setup - Quick Reference             ║
+╚════════════════════════════════════════════════════════════╝
+
+┌─────────────────────────────────────────────────────────────┐
+│ 🚀 QUICK START (Otomatis)                                   │
+└─────────────────────────────────────────────────────────────┘
+
+1. Start OCR Server:
+   cd F:\laragon\www\mybba\ocr_system
+   python main.py
+
+2. Run Setup Script:
+   cd F:\laragon\www\mybba
+   .\setup_ngrok.ps1
+
+3. Restart Laragon/Apache
+
+4. Access via ngrok URL
+
+
+┌─────────────────────────────────────────────────────────────┐
+│ 🔧 MANUAL SETUP                                             │
+└─────────────────────────────────────────────────────────────┘
+
+Terminal 1 - OCR Server:
+├─ cd F:\laragon\www\mybba\ocr_system
+└─ python main.py
+
+Terminal 2 - Ngrok OCR:
+├─ ngrok http 8000
+├─ Copy URL: https://abc123.ngrok-free.app
+└─ Set env: $env:OCR_API_URL = "https://abc123.ngrok-free.app"
+
+Terminal 3 - Restart Apache:
+└─ Restart Laragon
+
+Terminal 4 - Ngrok Web:
+├─ ngrok http 80
+└─ Access: https://xyz789.ngrok-free.app/mybba
+
+
+┌─────────────────────────────────────────────────────────────┐
+│ ✅ VERIFICATION                                             │
+└─────────────────────────────────────────────────────────────┘
+
+Test OCR Server:
+├─ Local:  http://localhost:8000/health
+├─ Ngrok:  https://abc123.ngrok-free.app/health
+└─ Script: .\test_ocr_connection.ps1
+
+Check Environment:
+├─ echo $env:OCR_API_URL
+└─ Should show: https://abc123.ngrok-free.app
+
+Test Upload:
+├─ Login ke sistem via ngrok URL
+├─ Upload bukti transfer
+└─ Check browser console (F12) for OCR URL
+
+
+┌─────────────────────────────────────────────────────────────┐
+│ 🔍 TROUBLESHOOTING                                          │
+└─────────────────────────────────────────────────────────────┘
+
+Error: "Failed to fetch localhost:8000"
+├─ Check: echo $env:OCR_API_URL
+├─ Fix: Set environment variable
+└─ Restart Apache/Laragon
+
+Error: "CORS policy blocking"
+├─ Check: OCR server running?
+├─ Fix: Restart OCR server (python main.py)
+└─ Verify: CORS allows "*" in main.py
+
+Error: "net::ERR_FAILED"
+├─ Check: Ngrok tunnel active? http://localhost:4040
+├─ Fix: Restart ngrok http 8000
+└─ Update: $env:OCR_API_URL with new URL
+
+Ngrok "Visit Site" Warning:
+├─ Click "Visit Site" button on first access
+└─ Or upgrade to ngrok paid plan
+
+
+┌─────────────────────────────────────────────────────────────┐
+│ 📊 ARCHITECTURE                                             │
+└─────────────────────────────────────────────────────────────┘
+
+Client (Any Device/Network)
+    │
+    ├─> Ngrok Web Tunnel (port 80)
+    │   └─> PHP App (Laragon)
+    │       │
+    │       └─> Fetch OCR API
+    │           │
+    └───────────┴─> Ngrok OCR Tunnel (port 8000)
+                    └─> FastAPI OCR Server
+
+
+┌─────────────────────────────────────────────────────────────┐
+│ 📝 FILES MODIFIED                                           │
+└─────────────────────────────────────────────────────────────┘
+
+✅ public/config.php
+   └─ Added: OCR_API_URL constant
+
+✅ public/student/finance.php
+   └─ Changed: Hardcoded localhost → Dynamic URL
+
+✅ public/admin/finance/detail.php
+   └─ Changed: Hardcoded localhost → Dynamic URL
+
+✅ ocr_system/main.py
+   └─ Changed: CORS allow_origins → ["*"]
+
+✅ ocr_system/app/core/config.py
+   └─ Updated: Added ngrok domains
+
+📄 SETUP_NGROK.md
+   └─ Complete documentation
+
+📄 setup_ngrok.ps1
+   └─ Automated setup script
+
+📄 test_ocr_connection.ps1
+   └─ Connection test script
+
+
+┌─────────────────────────────────────────────────────────────┐
+│ ⚠️  IMPORTANT NOTES                                         │
+└─────────────────────────────────────────────────────────────┘
+
+1. Keep both ngrok terminals running
+2. Restart Apache after setting OCR_API_URL
+3. Ngrok free plan URLs change on restart
+4. For production: Use proper CORS origins
+5. Never commit ngrok URLs to git
+
+
+┌─────────────────────────────────────────────────────────────┐
+│ 🆘 SUPPORT                                                  │
+└─────────────────────────────────────────────────────────────┘
+
+Documentation: SETUP_NGROK.md
+Test Script:   .\test_ocr_connection.ps1
+Setup Script:  .\setup_ngrok.ps1
+
+Ngrok Dashboard: http://localhost:4040
+OCR Health Check: $env:OCR_API_URL/health

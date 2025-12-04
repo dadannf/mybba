@@ -1,0 +1,522 @@
+/* =============================================
+   Informasi Page - Modern Elegant Styles
+   Menggunakan warna solid yang elegan dan tidak mencolok
+   ============================================= */
+
+/* Color Palette - Solid Elegant Colors */
+:root {
+  /* Primary Colors */
+  --primary-dark: #2c3e50;      /* Slate Blue - Header */
+  --primary-blue: #3498db;       /* Soft Blue - Stats */
+  --primary-green: #27ae60;      /* Emerald - Stats */
+  --primary-purple: #8e44ad;     /* Amethyst - Stats */
+  --primary-orange: #e67e22;     /* Carrot - Edit */
+  
+  /* Neutral Colors */
+  --neutral-light: #ecf0f1;      /* Clouds */
+  --neutral-medium: #95a5a6;     /* Concrete */
+  --neutral-dark: #34495e;       /* Wet Asphalt */
+  
+  /* Background Colors */
+  --bg-pdf: #5dade2;             /* Soft Blue for PDF */
+  --bg-default: #95a5a6;         /* Gray for default */
+  
+  /* Text Colors */
+  --text-primary: #2c3e50;
+  --text-secondary: #7f8c8d;
+  --text-muted: #95a5a6;
+}
+
+/* Statistik Cards dengan Warna Solid */
+.stat-card-blue {
+  background-color: var(--primary-blue);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.stat-card-green {
+  background-color: var(--primary-green);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.stat-card-purple {
+  background-color: var(--primary-purple);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+/* Hover Effects untuk Statistik Cards */
+.stat-card-blue:hover,
+.stat-card-green:hover,
+.stat-card-purple:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Card Layout Modern */
+.info-card {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+}
+
+.info-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+}
+
+/* Card Image dengan Overlay */
+.info-card-image {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  background-color: var(--neutral-light);
+}
+
+.info-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.info-card:hover .info-card-image img {
+  transform: scale(1.05);
+}
+
+.info-card-image::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.4) 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.info-card:hover .info-card-image::after {
+  opacity: 1;
+}
+
+/* Placeholders untuk Card tanpa Image - Warna Solid Elegan */
+.gradient-megaphone {
+  background-color: var(--neutral-medium);
+}
+
+.gradient-pdf {
+  background-color: var(--bg-pdf);
+}
+
+.gradient-default {
+  background-color: var(--neutral-light);
+}
+
+/* Badge Styles */
+.info-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  background-color: rgba(52, 152, 219, 0.15);
+  color: var(--primary-blue);
+  animation: fadeInDown 0.5s ease;
+}
+
+/* Card Title Styling */
+.info-card-title {
+  color: var(--text-primary);
+  font-weight: 700;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 3.2rem;
+  margin-bottom: 1rem;
+}
+
+/* Card Content Styling */
+.info-card-content {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Meta Information Styling */
+.info-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.info-meta i {
+  font-size: 0.9rem;
+}
+
+/* Button Styles */
+.btn-view-file {
+  transition: all 0.2s ease;
+}
+
+.btn-view-file:hover {
+  transform: translateX(2px);
+}
+
+.btn-edit-info,
+.btn-delete-info {
+  transition: all 0.2s ease;
+}
+
+.btn-edit-info:hover,
+.btn-delete-info:hover {
+  transform: scale(1.05);
+}
+
+/* Search Box Modern Styling */
+.search-box-modern {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.search-box-modern .input-group-text {
+  background: white;
+  border-right: none;
+  padding-left: 1.25rem;
+}
+
+.search-box-modern .form-control {
+  border-left: none;
+  padding-left: 0;
+  font-size: 1.1rem;
+}
+
+.search-box-modern .form-control:focus {
+  box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
+  border-color: var(--primary-blue);
+}
+
+.search-box-modern .form-control:focus + .input-group-text {
+  border-color: var(--primary-blue);
+}
+
+/* Empty State Styling */
+.empty-state-icon {
+  font-size: 5rem;
+  color: #cbd5e0;
+  animation: float 3s ease-in-out infinite;
+}
+
+.empty-state-title {
+  color: #4a5568;
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.empty-state-text {
+  color: #718096;
+  font-size: 1rem;
+}
+
+/* Modal Styling Enhancement */
+.modal-header.gradient-primary {
+  background-color: var(--primary-dark);
+  border: none;
+}
+
+.modal-header.gradient-warning {
+  background-color: var(--primary-orange);
+  border: none;
+}
+
+.modal-content {
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.modal-body {
+  padding: 2rem;
+}
+
+/* Modal Detail Informasi Styles */
+#modalDetail .content-text {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #555;
+  text-align: justify;
+  word-wrap: break-word;
+}
+
+#modalDetail .content-text p {
+  margin-bottom: 1rem;
+}
+
+#modalDetail #detail_header {
+  position: relative;
+  overflow: hidden;
+}
+
+#modalDetail #detail_header img {
+  transition: transform 0.3s ease;
+}
+
+#modalDetail:hover #detail_header img {
+  transform: scale(1.05);
+}
+
+/* Detail attachment box */
+#detail_attachment .border {
+  transition: all 0.3s ease;
+}
+
+#detail_attachment .border:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Alert Info Box Styling */
+.alert-info-box {
+  background-color: #d6eaf8;
+  border: none;
+  border-left: 4px solid var(--primary-blue);
+  border-radius: 8px;
+  color: #1b4f72;
+}
+
+.alert-warning-box {
+  background-color: #fdebd0;
+  border: none;
+  border-left: 4px solid var(--primary-orange);
+  border-radius: 8px;
+  color: #7d6608;
+}
+
+/* Form Input Enhancement */
+.form-control-modern {
+  border-radius: 8px;
+  border: 2px solid #e2e8f0;
+  padding: 0.75rem 1rem;
+  transition: all 0.2s ease;
+}
+
+.form-control-modern:focus {
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.15);
+  transform: translateY(-1px);
+}
+
+/* File Upload Area Styling */
+.file-upload-area {
+  background-color: #f8f9fa;
+  border: 2px dashed #cbd5e0;
+  border-radius: 8px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.file-upload-area:hover {
+  border-color: var(--primary-blue);
+  background-color: #ecf5fc;
+}
+
+/* Preview Image Styling */
+.preview-image {
+  border-radius: 8px;
+  border: 3px solid #e2e8f0;
+  padding: 0.5rem;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Current File Display */
+.current-file-display {
+  background-color: #f8f9fa;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Entrance Animations untuk Cards */
+.info-card {
+  animation: slideInUp 0.5s ease forwards;
+  opacity: 0;
+}
+
+.info-card:nth-child(1) { animation-delay: 0.1s; }
+.info-card:nth-child(2) { animation-delay: 0.2s; }
+.info-card:nth-child(3) { animation-delay: 0.3s; }
+.info-card:nth-child(4) { animation-delay: 0.4s; }
+.info-card:nth-child(5) { animation-delay: 0.5s; }
+.info-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .info-card-image {
+    height: 160px;
+  }
+  
+  .info-card-title {
+    font-size: 1.1rem;
+    min-height: 2.8rem;
+  }
+  
+  .info-card-content {
+    font-size: 0.9rem;
+  }
+  
+  .info-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .stat-card-blue:hover,
+  .stat-card-green:hover,
+  .stat-card-purple:hover {
+    transform: translateY(-2px) scale(1.01);
+  }
+  
+  .empty-state-icon {
+    font-size: 3.5rem;
+  }
+  
+  .modal-body {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .info-card-image {
+    height: 140px;
+  }
+  
+  .search-box-modern .form-control {
+    font-size: 1rem;
+  }
+  
+  .info-meta {
+    font-size: 0.75rem;
+    flex-wrap: wrap;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .info-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  
+  .btn,
+  .search-box-modern,
+  .info-gradient-header button {
+    display: none;
+  }
+}
+
+/* Accessibility Enhancements */
+.info-card:focus-within {
+  outline: 2px solid var(--primary-blue);
+  outline-offset: 2px;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--primary-blue);
+  outline-offset: 2px;
+}
+
+/* Loading State (optional for future use) */
+.loading-skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s ease-in-out infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Tooltip Enhancement */
+[data-bs-toggle="tooltip"] {
+  cursor: help;
+}
+
+/* Success/Error State Colors */
+.text-success-custom {
+  color: #10b981;
+}
+
+.text-error-custom {
+  color: #ef4444;
+}
+
+.text-warning-custom {
+  color: #f59e0b;
+}
+
+.text-info-custom {
+  color: #3b82f6;
+}
+
+/* Badge Variants */
+.badge-gradient-blue {
+  background-color: var(--primary-blue);
+  color: white;
+}
+
+.badge-gradient-green {
+  background-color: var(--primary-green);
+  color: white;
+}
+
+.badge-gradient-purple {
+  background-color: var(--primary-purple);
+  color: white;
+}

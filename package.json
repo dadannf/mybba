@@ -1,0 +1,12 @@
+{
+    "name": "mybba-school-management",
+    "version": "2.0.0",
+    "description": "School Management Information System",
+    "private": true,
+    "scripts": {
+        "dev": "echo 'No build process needed - Pure PHP project'",
+        "build": "echo 'No build process needed - Pure PHP project'"
+    },
+    "keywords": ["school", "management", "php"],
+    "license": "MIT"
+}
