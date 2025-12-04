@@ -2,6 +2,8 @@
 
 Aplikasi web untuk manajemen data siswa, keuangan, pembayaran, dan informasi sekolah.
 
+> 📖 **[Dokumentasi Lengkap](DOCUMENTATION_INDEX.md)** | 🚀 **[Panduan Deploy](DEPLOYMENT.md)** | ❓ **[FAQ](FAQ.md)**
+
 ## ⚡ Quick Start
 
 ```bash
