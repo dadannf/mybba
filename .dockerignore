@@ -1,0 +1,40 @@
+# Docker
+.env
+docker-compose.override.yml
+
+# Git
+.git
+.gitignore
+.gitattributes
+
+# IDE
+.vscode
+.idea
+.claude
+
+# Dependencies
+vendor/
+node_modules/
+
+# Build artifacts
+*.log
+*.cache
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Documentation (tidak perlu di image)
+*.md
+CHANGELOG.md
+TODO.md
+
+# Test files
+test_*.py
+test_*.bat
+test_*.ps1
+debug_*.py
+setup_test_accounts.sql
+
+# Backup files
+database/backups/*.sql

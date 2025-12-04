@@ -1,0 +1,78 @@
+version: '3.8'
+
+services:
+  # PHP-FPM + Nginx Web Server
+  web:
+    build: .
+    container_name: mybba-web
+    ports:
+      - "8080:80"
+    volumes:
+      - ./public:/var/www/mybba/public
+      - ./public/uploads:/var/www/mybba/public/uploads
+    environment:
+      - DB_HOST=mysql
+      - DB_USER=mybba_user
+      - DB_PASS=mybba_password
+      - DB_NAME=dbsekolah
+      - OCR_API_URL=http://ocr:8000
+    depends_on:
+      - mysql
+    networks:
+      - mybba-network
+    restart: unless-stopped
+
+  # MySQL Database
+  mysql:
+    image: mysql:8.0
+    container_name: mybba-mysql
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./database/backups:/docker-entrypoint-initdb.d
+    environment:
+      # ⚠️ IMPORTANT: Change these passwords for production!
+      # Generate strong passwords: openssl rand -base64 20
+      - MYSQL_ROOT_PASSWORD=CHANGE_ME_root_password_123
+      - MYSQL_DATABASE=dbsekolah
+      - MYSQL_USER=mybba_user
+      - MYSQL_PASSWORD=CHANGE_ME_user_password_123
+    networks:
+      - mybba-network
+    restart: unless-stopped
+    command: --default-authentication-plugin=mysql_native_password
+
+  # OCR Service (Optional - jika menggunakan fitur OCR)
+  ocr:
+    build: ./ocr_system
+    container_name: mybba-ocr
+    ports:
+      - "8000:8000"
+    networks:
+      - mybba-network
+    restart: unless-stopped
+
+  # phpMyAdmin (Optional - untuk manajemen database)
+  phpmyadmin:
+    image: phpmyadmin:latest
+    container_name: mybba-phpmyadmin
+    ports:
+      - "8081:80"
+    environment:
+      - PMA_HOST=mysql
+      - PMA_USER=root
+      # ⚠️ IMPORTANT: Must match MYSQL_ROOT_PASSWORD above
+      - PMA_PASSWORD=CHANGE_ME_root_password_123
+    depends_on:
+      - mysql
+    networks:
+      - mybba-network
+    restart: unless-stopped
+
+networks:
+  mybba-network:
+    driver: bridge
+
+volumes:
+  mysql-data:

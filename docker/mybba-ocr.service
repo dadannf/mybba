@@ -1,0 +1,35 @@
+# MyBBA Systemd Service for OCR Server
+# Install this file to /etc/systemd/system/mybba-ocr.service
+# 
+# Installation:
+# 1. sudo cp mybba-ocr.service /etc/systemd/system/
+# 2. sudo systemctl daemon-reload
+# 3. sudo systemctl enable mybba-ocr
+# 4. sudo systemctl start mybba-ocr
+
+[Unit]
+Description=MyBBA OCR Service
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/mybba/ocr_system
+Environment="PATH=/usr/local/bin:/usr/bin:/bin"
+ExecStart=/usr/bin/python3 /var/www/mybba/ocr_system/main.py
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=mybba-ocr
+
+# Security settings
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=yes
+ReadWritePaths=/var/www/mybba/ocr_system/uploads
+
+[Install]
+WantedBy=multi-user.target
