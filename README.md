@@ -64,9 +64,15 @@ public/
 
 ## 📚 Dokumentasi
 
+### Development
 - **[SETUP.md](SETUP.md)** - Panduan instalasi lengkap
 - **[DOCS.md](DOCS.md)** - Dokumentasi teknis & development
 - **[API.md](API.md)** - API endpoints reference
+
+### Deployment & Production
+- **[DEPLOYMENT.md](DEPLOYMENT.md)** - 🚀 Panduan deploy ke production dengan domain
+- **[DOCKER_GUIDE.md](DOCKER_GUIDE.md)** - 🐳 Deploy dengan Docker
+- **[SETUP_NGROK.md](SETUP_NGROK.md)** - 🌐 Testing dengan ngrok
 
 ## 🔐 Default Login
 
@@ -133,6 +139,35 @@ uploadFile($file, $dir)      // Upload helper
 - MySQL >= 8.0
 - Apache/Nginx (atau PHP built-in server)
 - Browser modern (Chrome, Firefox, Edge)
+
+## 🚀 Deployment
+
+Ingin membuat aplikasi ini bisa diakses orang lain dengan domain sendiri?
+
+### Quick Options:
+
+**1. Testing/Demo (Gratis - 5 menit)** ⚡
+```bash
+# Lihat panduan: SETUP_NGROK.md
+ngrok http 80
+```
+
+**2. Production dengan Docker (Mudah - 10 menit)** 🐳
+```bash
+# Lihat panduan lengkap: DOCKER_GUIDE.md
+docker-compose up -d
+```
+
+**3. Deploy ke VPS dengan Domain Custom** 🌐
+```bash
+# Lihat panduan lengkap: DEPLOYMENT.md
+sudo bash deploy.sh
+```
+
+**📖 Dokumentasi Lengkap:**
+- **[DEPLOYMENT.md](DEPLOYMENT.md)** - Panduan lengkap deployment production
+- **[DOCKER_GUIDE.md](DOCKER_GUIDE.md)** - Deploy dengan Docker
+- **[SETUP_NGROK.md](SETUP_NGROK.md)** - Quick testing dengan ngrok
 
 ## 📝 Changelog
 
