@@ -6,6 +6,7 @@
 # =============================================
 
 set -e  # Exit on error
+set -u  # Exit on undefined variables
 
 echo "🚀 MyBBA Deployment Script"
 echo "================================"
@@ -56,9 +57,15 @@ apt install php8.2-fpm php8.2-mysql php8.2-mbstring php8.2-xml php8.2-curl php8.
 echo "🗄️ Installing MySQL..."
 apt install mysql-server -y
 
-# Secure MySQL installation
+# Secure MySQL installation (non-interactive)
 echo "🔒 Securing MySQL installation..."
-mysql_secure_installation
+# Set root password and secure MySQL
+mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '${DB_PASS}';"
+mysql -u root -p"${DB_PASS}" -e "DELETE FROM mysql.user WHERE User='';"
+mysql -u root -p"${DB_PASS}" -e "DELETE FROM mysql.user WHERE User='root' AND Host NOT IN ('localhost', '127.0.0.1', '::1');"
+mysql -u root -p"${DB_PASS}" -e "DROP DATABASE IF EXISTS test;"
+mysql -u root -p"${DB_PASS}" -e "DELETE FROM mysql.db WHERE Db='test' OR Db='test\\_%';"
+mysql -u root -p"${DB_PASS}" -e "FLUSH PRIVILEGES;"
 
 # Create database and user
 echo "📊 Creating database..."

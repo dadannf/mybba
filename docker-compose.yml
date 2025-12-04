@@ -32,10 +32,12 @@ services:
       - mysql-data:/var/lib/mysql
       - ./database/backups:/docker-entrypoint-initdb.d
     environment:
-      - MYSQL_ROOT_PASSWORD=root_password
+      # ⚠️ IMPORTANT: Change these passwords for production!
+      # Generate strong passwords: openssl rand -base64 20
+      - MYSQL_ROOT_PASSWORD=CHANGE_ME_root_password_123
       - MYSQL_DATABASE=dbsekolah
       - MYSQL_USER=mybba_user
-      - MYSQL_PASSWORD=mybba_password
+      - MYSQL_PASSWORD=CHANGE_ME_user_password_123
     networks:
       - mybba-network
     restart: unless-stopped
@@ -60,7 +62,8 @@ services:
     environment:
       - PMA_HOST=mysql
       - PMA_USER=root
-      - PMA_PASSWORD=root_password
+      # ⚠️ IMPORTANT: Must match MYSQL_ROOT_PASSWORD above
+      - PMA_PASSWORD=CHANGE_ME_root_password_123
     depends_on:
       - mysql
     networks:

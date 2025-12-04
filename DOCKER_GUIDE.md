@@ -26,6 +26,12 @@ cp .env.production .env
 
 # Edit sesuai kebutuhan (opsional)
 nano .env
+
+# ⚠️ PENTING: Ubah password di docker-compose.yml untuk production!
+# Edit docker-compose.yml dan ganti:
+# - MYSQL_ROOT_PASSWORD=CHANGE_ME_root_password_123
+# - MYSQL_PASSWORD=CHANGE_ME_user_password_123
+# Dengan password yang kuat (gunakan: openssl rand -base64 20)
 ```
 
 ### 3. Start Services
