@@ -1,0 +1,77 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Documentation
+*.md
+!README.md
+DOCS.md
+API.md
+EXAMPLES.md
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+*.log
+logs/
+storage/logs/
+
+# Cache
+.cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Dependencies (will be installed in container)
+node_modules/
+vendor/
+
+# Test files
+tests/
+*.test.php
+test_*.py
+debug_*.py
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# Uploads (will be mounted as volume)
+uploads/bukti_pembayaran/*
+uploads/informasi/*
+ocr_system/uploads/*
+
+# Database dumps (except init)
+database/backups/*.sql
+!database/backups/dbsekolah.sql
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+
+# Python
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+
+# OCR models (will be downloaded in container)
+ocr_system/models_pretrained/*
+ocr_system/.paddleocr/
+
+# Docker
+docker-compose.override.yml
