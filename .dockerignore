@@ -36,7 +36,7 @@ __pycache__/
 
 # Dependencies (will be installed in container)
 node_modules/
-vendor/
+# vendor/ is now installed via composer in Dockerfile
 
 # Test files
 tests/

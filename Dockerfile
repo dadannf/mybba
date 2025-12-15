@@ -13,6 +13,9 @@ RUN apt-get update && apt-get install -y \
     default-mysql-client \
     && rm -rf /var/lib/apt/lists/*
 
+# Install Composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
 # Install PHP extensions
 RUN docker-php-ext-install pdo_mysql mbstring exif pcntl bcmath gd
 
@@ -22,11 +25,16 @@ RUN a2enmod rewrite
 # Set working directory
 WORKDIR /var/www/html
 
+# Copy composer files first (for better caching)
+COPY composer.json composer.lock /var/www/
+
+# Install PHP dependencies
+RUN cd /var/www && composer install --no-dev --optimize-autoloader --no-interaction
+
 # Copy application files
 COPY public/ /var/www/html/
 COPY config/ /var/www/config/
 COPY database/ /var/www/database/
-COPY vendor/ /var/www/vendor/
 
 # Create uploads directory with proper permissions
 RUN mkdir -p /var/www/html/uploads/bukti_pembayaran \
