@@ -448,10 +448,17 @@ $resultJurusan = $conn->query($sqlJurusan);
             </h6>
             <ol class="mb-0 small">
               <li>Download template CSV terlebih dahulu</li>
-              <li>Isi data siswa sesuai kolom yang tersedia</li>
+              <li>Isi data siswa sesuai kolom yang tersedia (delimiter: <code>;</code> semicolon)</li>
+              <li>Format tanggal: <strong>DD/MM/YYYY</strong> (contoh: 15/05/2007)</li>
+              <li>Kolom <strong>tahun_masuk</strong> WAJIB diisi untuk generate data keuangan</li>
               <li>Upload file CSV yang sudah diisi</li>
-              <li>Sistem akan memvalidasi dan menambahkan data secara otomatis</li>
-              <li>Foto default akan menggunakan icon personal (bisa diupdate manual nanti)</li>
+              <li>Sistem akan:
+                <ul class="mt-1">
+                  <li>Membuat akun user otomatis (username = NIS, password = bba#[4 digit terakhir NIS])</li>
+                  <li>Generate data keuangan dari tahun masuk sampai sekarang</li>
+                  <li>Hitung tagihan otomatis (Kelas 10: Rp 200.000/bulan, Kelas 11-12: Rp 190.000/bulan)</li>
+                </ul>
+              </li>
             </ol>
           </div>
 
@@ -474,10 +481,14 @@ $resultJurusan = $conn->query($sqlJurusan);
           <form id="importForm" method="POST" action="process_import.php" enctype="multipart/form-data">
             <div class="mb-3">
               <label for="csvFile" class="form-label fw-semibold">
-                <i class="bi bi-cloud-upload me-1"></i> Pilih File CSV/Excel
+                <i class="bi bi-cloud-upload me-1"></i> Pilih File CSV
               </label>
-              <input type="file" class="form-control" id="csvFile" name="csvFile" accept=".csv,.xlsx,.xls" required>
-              <div class="form-text">Format yang didukung: .csv, .xlsx, .xls (Max 2MB)</div>
+              <input type="file" class="form-control" id="csvFile" name="csvFile" accept=".csv" required>
+              <div class="form-text">
+                Format: .csv dengan delimiter <code>;</code> (semicolon) | Max 2MB
+                <br><small class="text-muted">Untuk Excel, export dulu ke CSV sebelum upload</small>
+                <br><small class="text-info"><strong>Kolom CSV harus sesuai:</strong> nis, nisn, nik, nama, tempat_lahir, tanggal_lahir (DD/MM/YYYY), jk, kelas, jurusan, ayah, ibu, alamat, email, no_hp, status_siswa</small>
+              </div>
             </div>
 
             <div class="form-check mb-3">

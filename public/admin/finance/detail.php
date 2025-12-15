@@ -282,9 +282,9 @@ $persenPembayaran = ($totalTagihan > 0) ? ($totalTerbayar / $totalTagihan) * 100
             <p class="text-muted mb-0"><small>Record pembayaran bulanan tahun ajaran <?php echo htmlspecialchars($keuangan['tahun']); ?></small></p>
           </div>
           <div class="no-print">
-            <button onclick="printPembayaran()" class="btn btn-success me-2">
-              <i class="bi bi-printer me-1"></i> Print
-            </button>
+            <a href="/admin/finance/print_laporan.php?nis=<?php echo urlencode($keuangan['nis']); ?>" target="_blank" class="btn btn-primary me-2">
+              <i class="bi bi-file-earmark-text me-1"></i> Cetak Laporan
+            </a>
             <a href="/admin/finance/index.php" class="btn btn-outline-secondary">
               <i class="bi bi-arrow-left me-1"></i> Kembali
             </a>
@@ -1136,10 +1136,6 @@ $persenPembayaran = ($totalTagihan > 0) ? ($totalTerbayar / $totalTagihan) * 100
       tunaiSection.style.display = 'none';
       buktiInput.required = false;
     }
-  }
-  
-  function printPembayaran() {
-    window.print();
   }
   
   // Function untuk cetak kwitansi pembayaran tunai

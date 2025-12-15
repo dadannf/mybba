@@ -195,10 +195,26 @@ $bulanList = [
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-header text-center py-4">
       <div class="profile-avatar mb-2">
-        <svg width="54" height="54" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="8" r="4" fill="#fff" opacity="0.9"/>
-          <path d="M4 20c0-4 4-7 8-7s8 3 8 7" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+        <?php 
+        $fotoPath = '';
+        if (!empty($siswa['foto'])) {
+          $fotoAbsolute = __DIR__ . '/../' . $siswa['foto'];
+          if (file_exists($fotoAbsolute)) {
+            $fotoPath = '../' . $siswa['foto'];
+          }
+        }
+        if ($fotoPath): 
+        ?>
+          <img src="<?php echo htmlspecialchars($fotoPath); ?>" 
+               alt="Foto <?php echo htmlspecialchars($siswa['nama']); ?>" 
+               class="rounded-circle" 
+               style="width: 70px; height: 70px; object-fit: cover; border: 3px solid rgba(255,255,255,0.3);">
+        <?php else: ?>
+          <svg width="54" height="54" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="8" r="4" fill="#fff" opacity="0.9"/>
+            <path d="M4 20c0-4 4-7 8-7s8 3 8 7" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        <?php endif; ?>
       </div>
       <div class="profile-name"><?php echo htmlspecialchars($siswa['nama']); ?></div>
       <div class="profile-role text-muted">
@@ -275,10 +291,15 @@ $bulanList = [
         
         <div class="card mb-4 shadow-sm">
           <div class="card-header" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
-            <h5 class="mb-0">
-              <i class="bi bi-wallet2 me-2"></i>
-              Informasi Keuangan - <?php echo htmlspecialchars($siswa['nama']); ?>
-            </h5>
+            <div class="d-flex justify-content-between align-items-center">
+              <h5 class="mb-0">
+                <i class="bi bi-wallet2 me-2"></i>
+                Informasi Keuangan - <?php echo htmlspecialchars($siswa['nama']); ?>
+              </h5>
+              <a href="print_laporan.php" target="_blank" class="btn btn-light btn-sm">
+                <i class="bi bi-printer me-1"></i> Cetak Laporan
+              </a>
+            </div>
           </div>
           <div class="card-body">
             <div class="row">

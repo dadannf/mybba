@@ -304,10 +304,28 @@ $siswa = $result->fetch_assoc();
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-header text-center py-4">
       <div class="profile-avatar mb-2">
-        <svg width="54" height="54" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="8" r="4" fill="#fff" opacity="0.9"/>
-          <path d="M4 20c0-4 4-7 8-7s8 3 8 7" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+        <?php 
+        $fotoPath = '';
+        if (!empty($siswa['foto'])) {
+          // Files are in public/uploads/siswa/, only go up 1 level
+          $fotoAbsolute = __DIR__ . '/../' . $siswa['foto'];
+          if (file_exists($fotoAbsolute)) {
+            $fotoPath = '../' . $siswa['foto'];
+          }
+        }
+        
+        if ($fotoPath): 
+        ?>
+          <img src="<?php echo htmlspecialchars($fotoPath); ?>" 
+               alt="Foto <?php echo htmlspecialchars($siswa['nama']); ?>" 
+               class="rounded-circle" 
+               style="width: 70px; height: 70px; object-fit: cover; border: 3px solid rgba(255,255,255,0.3);">
+        <?php else: ?>
+          <svg width="54" height="54" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="8" r="4" fill="#fff" opacity="0.9"/>
+            <path d="M4 20c0-4 4-7 8-7s8 3 8 7" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        <?php endif; ?>
       </div>
       <div class="profile-name"><?php echo htmlspecialchars($siswa['nama']); ?></div>
       <div class="profile-role text-muted">
@@ -419,8 +437,24 @@ $siswa = $result->fetch_assoc();
             <!-- Profile Header Card -->
             <div class="card shadow-sm mb-4 border-0 overflow-hidden">
               <div class="profile-header text-center">
-                <div class="profile-avatar-large">
-                  <i class="bi bi-person-fill" style="font-size: 3.5rem; color: #4F46E5;"></i>
+                <div class="profile-avatar-large mb-3">
+                  <?php 
+                  $fotoHeaderPath = '';
+                  if (!empty($siswa['foto'])) {
+                    $fotoAbsolute = __DIR__ . '/../' . $siswa['foto'];
+                    if (file_exists($fotoAbsolute)) {
+                      $fotoHeaderPath = '../' . $siswa['foto'];
+                    }
+                  }
+                  if ($fotoHeaderPath): 
+                  ?>
+                    <img src="<?php echo htmlspecialchars($fotoHeaderPath); ?>" 
+                         alt="Foto <?php echo htmlspecialchars($siswa['nama']); ?>" 
+                         class="rounded-circle shadow" 
+                         style="width: 120px; height: 120px; object-fit: cover; border: 4px solid white;">
+                  <?php else: ?>
+                    <i class="bi bi-person-fill" style="font-size: 3.5rem; color: #4F46E5;"></i>
+                  <?php endif; ?>
                 </div>
                 <h3 class="mb-2 fw-bold"><?php echo htmlspecialchars($siswa['nama']); ?></h3>
                 <p class="mb-3 opacity-90" style="font-size: 1.1rem;">

@@ -16,7 +16,7 @@ if ($userRole !== 'siswa') {
 
 // Ambil data siswa yang login berdasarkan username (NIS)
 $username = $_SESSION['username']; // NIS siswa
-$sqlSiswa = "SELECT nama, kelas, jurusan FROM siswa WHERE nis = '" . esc($username) . "'";
+$sqlSiswa = "SELECT nama, kelas, jurusan, foto FROM siswa WHERE nis = '" . esc($username) . "'";
 $resultSiswa = $conn->query($sqlSiswa);
 
 if ($resultSiswa && $resultSiswa->num_rows > 0) {
@@ -24,10 +24,12 @@ if ($resultSiswa && $resultSiswa->num_rows > 0) {
     $namaSiswa = $dataSiswa['nama'];
     $kelasSiswa = $dataSiswa['kelas'];
     $jurusanSiswa = $dataSiswa['jurusan'];
+    $fotoSiswa = $dataSiswa['foto'];
 } else {
     $namaSiswa = $adminName; // Fallback ke username jika data tidak ditemukan
     $kelasSiswa = '';
     $jurusanSiswa = '';
+    $fotoSiswa = '';
 }
 
 // Query untuk menghitung total siswa
@@ -196,10 +198,26 @@ $totalGuru = 25; // Bisa diambil dari database jika ada tabel guru
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-header text-center py-4">
       <div class="profile-avatar mb-2">
-        <svg width="54" height="54" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="8" r="4" fill="#fff" opacity="0.9"/>
-          <path d="M4 20c0-4 4-7 8-7s8 3 8 7" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+        <?php 
+        $fotoPath = '';
+        if (!empty($fotoSiswa)) {
+          $fotoAbsolute = __DIR__ . '/../' . $fotoSiswa;
+          if (file_exists($fotoAbsolute)) {
+            $fotoPath = '../' . $fotoSiswa;
+          }
+        }
+        if ($fotoPath): 
+        ?>
+          <img src="<?php echo htmlspecialchars($fotoPath); ?>" 
+               alt="Foto <?php echo htmlspecialchars($namaSiswa); ?>" 
+               class="rounded-circle" 
+               style="width: 70px; height: 70px; object-fit: cover; border: 3px solid rgba(255,255,255,0.3);">
+        <?php else: ?>
+          <svg width="54" height="54" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="8" r="4" fill="#fff" opacity="0.9"/>
+            <path d="M4 20c0-4 4-7 8-7s8 3 8 7" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        <?php endif; ?>
       </div>
       <div class="profile-name"><?php echo htmlspecialchars($namaSiswa); ?></div>
       <div class="profile-role text-muted">

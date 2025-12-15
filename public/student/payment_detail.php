@@ -24,7 +24,7 @@ if (empty($keuangan_id)) {
 
 // Pastikan keuangan_id milik siswa yang login
 $username = $_SESSION['username'];
-$sqlCheck = "SELECT k.*, s.nama, s.kelas, s.jurusan 
+$sqlCheck = "SELECT k.*, s.nama, s.kelas, s.jurusan, s.foto 
              FROM keuangan k
              INNER JOIN siswa s ON k.nis = s.nis
              WHERE k.keuangan_id = '$keuangan_id' AND k.nis = '$username'";
@@ -182,10 +182,26 @@ $nominalPerBulan = 100000; // Rp 100.000 per bulan
   <aside class="sidebar" id="sidebar">
     <div class="sidebar-header text-center py-4">
       <div class="profile-avatar mb-2">
-        <svg width="54" height="54" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="8" r="4" fill="#fff" opacity="0.9"/>
-          <path d="M4 20c0-4 4-7 8-7s8 3 8 7" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+        <?php 
+        $fotoPath = '';
+        if (!empty($keuangan['foto'])) {
+          $fotoAbsolute = __DIR__ . '/../' . $keuangan['foto'];
+          if (file_exists($fotoAbsolute)) {
+            $fotoPath = '../' . $keuangan['foto'];
+          }
+        }
+        if ($fotoPath): 
+        ?>
+          <img src="<?php echo htmlspecialchars($fotoPath); ?>" 
+               alt="Foto <?php echo htmlspecialchars($keuangan['nama']); ?>" 
+               class="rounded-circle" 
+               style="width: 70px; height: 70px; object-fit: cover; border: 3px solid rgba(255,255,255,0.3);">
+        <?php else: ?>
+          <svg width="54" height="54" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="8" r="4" fill="#fff" opacity="0.9"/>
+            <path d="M4 20c0-4 4-7 8-7s8 3 8 7" stroke="#fff" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        <?php endif; ?>
       </div>
       <div class="profile-name"><?php echo htmlspecialchars($keuangan['nama']); ?></div>
       <div class="profile-role text-muted">

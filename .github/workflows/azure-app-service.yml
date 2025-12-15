@@ -1,0 +1,61 @@
+name: Deploy to Azure App Service
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+env:
+  AZURE_WEBAPP_NAME: mybba-app    # Set this to your app name
+  PHP_VERSION: '8.2'
+  
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: 📥 Checkout code
+      uses: actions/checkout@v3
+    
+    - name: 🐘 Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ env.PHP_VERSION }}
+        extensions: mbstring, pdo_mysql, gd, zip
+        tools: composer
+    
+    - name: 📦 Install Composer dependencies
+      run: |
+        cd public
+        if [ -f "composer.json" ]; then
+          composer install --no-dev --optimize-autoloader
+        fi
+    
+    - name: 📁 Prepare deployment package
+      run: |
+        mkdir deploy
+        cp -r public/* deploy/
+        cp -r config deploy/
+        cp -r database deploy/
+        cp -r uploads deploy/
+        
+        # Create .htaccess for URL rewriting
+        cat > deploy/.htaccess << 'EOF'
+        <IfModule mod_rewrite.c>
+            RewriteEngine On
+            RewriteCond %{REQUEST_FILENAME} !-f
+            RewriteCond %{REQUEST_FILENAME} !-d
+            RewriteRule ^ index.php [L]
+        </IfModule>
+        EOF
+    
+    - name: 🚀 Deploy to Azure App Service
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: ${{ env.AZURE_WEBAPP_NAME }}
+        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+        package: ./deploy
+    
+    - name: ✅ Deployment complete
+      run: echo "Deployment to Azure App Service completed successfully!"
