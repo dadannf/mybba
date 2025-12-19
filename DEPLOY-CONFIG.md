@@ -104,7 +104,7 @@ on:
 
 ### Exclude File Tambahan
 
-Tambahkan di bagian `exclude:`:
+Tambahkan di bagian `exclude:` (sesuai dengan workflow yang ada):
 
 ```yaml
 exclude: |
@@ -113,9 +113,23 @@ exclude: |
   **/node_modules/**
   **/vendor/**
   **/.env
+  **/.env.example
+  **/.env.railway.example
+  **/README.md
+  **/SETUP.md
+  **/DOCS.md
+  **/API.md
+  **/.editorconfig
+  **/.dockerignore
+  **/composer.json
+  **/composer.lock
+  **/package.json
+  **/.github/**
+  **/.claude/**
+  **/setup_test_accounts.sql
+  # Tambahan custom (contoh):
   **/tests/**           # Exclude folder tests
   **/temp/**            # Exclude folder temp
-  **/*.md               # Exclude semua file markdown
   **/.vscode/**         # Exclude VSCode config
   **/.idea/**           # Exclude PHPStorm config
 ```
