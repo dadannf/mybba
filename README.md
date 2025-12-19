@@ -68,13 +68,15 @@ public/
 - **[DOCS.md](DOCS.md)** - Dokumentasi teknis & development
 - **[API.md](API.md)** - API endpoints reference
 
-### 🚀 Deployment (Auto-Deploy ke cPanel)
-- **[DEPLOY.md](DEPLOY.md)** - 📖 Panduan lengkap setup auto-deploy
+### 🚀 Auto-Deploy GitHub → cPanel
+> **[📚 DEPLOYMENT-INDEX.md](DEPLOYMENT-INDEX.md)** - 🎯 **MULAI DI SINI** untuk deployment guide
+
+**Dokumentasi Lengkap:**
+- **[DEPLOY-VISUAL.md](DEPLOY-VISUAL.md)** - 📸 Step-by-step visual (Recommended untuk pemula)
+- **[DEPLOY.md](DEPLOY.md)** - 📖 Panduan lengkap & detail
 - **[DEPLOY-QUICK.md](DEPLOY-QUICK.md)** - ⚡ Quick reference & cheat sheet
 - **[DEPLOY-CONFIG.md](DEPLOY-CONFIG.md)** - ⚙️ Template konfigurasi & customisasi
-- **[DEPLOY-VISUAL.md](DEPLOY-VISUAL.md)** - 📸 Step-by-step visual guide
 - **[DEPLOY-FAQ.md](DEPLOY-FAQ.md)** - ❓ Frequently Asked Questions
-- **[DEPLOY-CONFIG.md](DEPLOY-CONFIG.md)** - Template konfigurasi & customisasi
 
 ## 🔐 Default Login
 
