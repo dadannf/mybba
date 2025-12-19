@@ -11,6 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Deploy to cPanel via FTP
     
+    permissions:
+      contents: read
+    
     steps:
     - name: 📥 Checkout code
       uses: actions/checkout@v4
