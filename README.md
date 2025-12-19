@@ -67,7 +67,11 @@ public/
 - **[SETUP.md](SETUP.md)** - Panduan instalasi lengkap
 - **[DOCS.md](DOCS.md)** - Dokumentasi teknis & development
 - **[API.md](API.md)** - API endpoints reference
-- **[DEPLOY.md](DEPLOY.md)** - 🚀 Panduan auto-deploy GitHub ke cPanel
+
+### 🚀 Deployment
+- **[DEPLOY.md](DEPLOY.md)** - Panduan lengkap auto-deploy GitHub ke cPanel
+- **[DEPLOY-QUICK.md](DEPLOY-QUICK.md)** - Quick reference & cheat sheet
+- **[DEPLOY-CONFIG.md](DEPLOY-CONFIG.md)** - Template konfigurasi & customisasi
 
 ## 🔐 Default Login
 

@@ -2,6 +2,49 @@
 
 Panduan ini menjelaskan cara menghubungkan repository GitHub dengan hosting cPanel agar dapat melakukan deployment otomatis setiap kali ada perubahan kode.
 
+## 🔄 Cara Kerja Auto-Deploy
+
+```
+┌─────────────────┐
+│   Developer     │
+│   (Anda)        │
+└────────┬────────┘
+         │ git push origin main
+         ▼
+┌─────────────────────────┐
+│   GitHub Repository     │
+│   (dadannf/mybba)       │
+└────────┬────────────────┘
+         │ Trigger
+         ▼
+┌─────────────────────────┐
+│   GitHub Actions        │
+│   (cpanel-deploy.yml)   │
+└────────┬────────────────┘
+         │ FTP Upload
+         ▼
+┌─────────────────────────┐
+│   cPanel Hosting        │
+│   (/public_html/)       │
+└─────────────────────────┘
+         │
+         ▼
+┌─────────────────────────┐
+│   Website Live! 🎉      │
+│   (namadomain.com)      │
+└─────────────────────────┘
+```
+
+**Alur Kerja:**
+1. Anda edit code di komputer lokal
+2. Commit & push ke GitHub (branch main)
+3. GitHub Actions otomatis terdeteksi ada push baru
+4. Workflow `cpanel-deploy.yml` dijalankan
+5. File di-upload via FTP ke cPanel hosting
+6. Website otomatis update!
+
+⏱️ **Durasi**: Sekitar 1-2 menit dari push hingga live
+
 ## 📋 Prasyarat
 
 1. **Akun cPanel hosting** yang sudah aktif
