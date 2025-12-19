@@ -1,0 +1,4 @@
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/xhpvlcgh/public_html/
+    - /bin/rsync -av --delete public/ $DEPLOYPATH
